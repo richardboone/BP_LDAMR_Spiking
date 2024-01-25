@@ -1,0 +1,53 @@
+Network:
+  epochs: 400
+  batch_size: 5
+  n_steps: 300
+  dataset: "DVS_Gesture"
+  data_path: "../../datasets/DvsGesture_Short"
+  rule: "TPA"
+  lr: 0.0001
+  back_lr: 0.0001
+  loss: "count"
+  n_class: 11
+  desired_count: 200
+  undesired_count: 40
+  tau_m: 64
+  tau_s: 8
+  model: "LIF"
+  alt: False
+  altset: "tpa_test"
+  saveall: False
+  dfa_genset: "randn"
+  dfa_learn_preset: "partial_a"
+  decayrate: 0.00002
+  tpa_bw: False
+  tpa_bg: False
+  tpa_vcurve: "large_flat"
+  tpa_perturbation: 0.001
+  tpa_filler: "empty_diff"
+  alt_tpa: True
+  limit_time: 40
+
+
+Layers:
+  pooling_1:
+    type: "pooling" # 32
+    pa_repeat: 2
+    kernel_size: 4
+    threshold: 1
+
+  hidden_1:
+    type: "linear"
+    pa_repeat: 1
+    n_inputs: 2048
+    n_outputs: 512
+    weight_scale: 1
+    threshold: 1
+
+  output:
+    type: "linear"
+    pa_repeat: 0
+    n_inputs: 512
+    n_outputs: 11
+    weight_scale: 1
+    threshold: 1

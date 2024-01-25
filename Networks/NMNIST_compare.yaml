@@ -1,0 +1,46 @@
+Network:
+  epochs: 300
+  batch_size: 100
+  n_steps: 30
+  dataset: "NMNIST_Spiking"
+  rule: "TPA"
+  data_path: "~/datasets/mnist/2312_3000_stable"
+  lr: 0.0005
+  back_lr: 0.0005
+  loss: "count"
+  n_class: 10
+  desired_count: 15
+  undesired_count: 3
+  tau_m: 8
+  tau_s: 4
+  model: "LIF"
+  alt: False
+  altset: "tpa_test"
+  saveall: False
+  dfa_genset: "randn"
+  dfa_learn_preset: "partial_a"
+  decayrate: 0.0001
+  tpa_bw: False
+  tpa_bg: False
+  tpa_vcurve: "large_flat"
+  tpa_perturbation: 0.005
+  tpa_filler: "avg"
+  alt_tpa: True
+
+
+Layers:
+  linear_0:
+    type: "linear"
+    n_inputs: 2312
+    n_outputs: 512
+    weight_scale: 1
+    threshold: 1
+
+
+  output:
+    type: "linear"
+    n_inputs: 512
+    n_outputs: 10
+    weight_scale: 1
+    threshold: 1
+

@@ -1,0 +1,14 @@
+**__pycache__**
+datasets/*
+logs/*
+checkpoint/*
+*.log
+./.*__pycache__*
+*.pyc
+.*__pycache__**
+./layers/__pycache__**
+functions/__pycache__/*
+./*.pyc
+./.*.pyc
+./functions/__pycache__/*.pyc
+
